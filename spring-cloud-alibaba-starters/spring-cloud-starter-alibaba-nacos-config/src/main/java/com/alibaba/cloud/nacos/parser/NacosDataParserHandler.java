@@ -68,11 +68,11 @@ public final class NacosDataParserHandler {
 		if (StringUtils.isEmpty(configValue)) {
 			return Collections.emptyList();
 		}
-		if (StringUtils.isEmpty(extension)) {
-			extension = this.getFileExtension(configName);
-		}
+		if (StringUtils.isEmpty(extension)) { // 默认properties
+			extension = this.getFileExtension(configName);  // 未指定，从文件后缀名获取
+		} // PropertiesPropertySourceLoader YamlPropertySourceLoader NacosJsonPropertySourceLoader NacosXmlPropertySourceLoader
 		for (PropertySourceLoader propertySourceLoader : propertySourceLoaders) {
-			if (!canLoadFileExtension(propertySourceLoader, extension)) {
+			if (!canLoadFileExtension(propertySourceLoader, extension)) { // json  xml  properties  yml yaml
 				continue;
 			}
 			NacosByteArrayResource nacosByteArrayResource;

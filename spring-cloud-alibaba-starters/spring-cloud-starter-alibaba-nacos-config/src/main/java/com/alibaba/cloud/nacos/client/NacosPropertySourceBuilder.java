@@ -30,7 +30,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.core.env.PropertySource;
 import org.springframework.util.StringUtils;
 
-/**
+/**  applicationContext.getEnvironment().getProperty("common.name")  todo getEnvironment().getProperty
  * @author xiaojing
  * @author pbting
  */
@@ -82,7 +82,7 @@ public class NacosPropertySourceBuilder {
 			String fileExtension) {
 		String data = null;
 		try {
-			data = configService.getConfig(dataId, group, timeout);
+			data = configService.getConfig(dataId, group, timeout); // 从服务器获取数据
 			if (StringUtils.isEmpty(data)) {
 				log.warn(
 						"Ignore the empty nacos configuration and get it based on dataId[{}] & group[{}]",

@@ -81,7 +81,7 @@ public class NacosPropertySourceLocator implements PropertySourceLocator {
 			log.warn("no instance of config service found, can't load config from nacos");
 			return null;
 		}
-		long timeout = nacosConfigProperties.getTimeout();
+		long timeout = nacosConfigProperties.getTimeout(); // 默认3000
 		nacosPropertySourceBuilder = new NacosPropertySourceBuilder(configService,
 				timeout);
 		String name = nacosConfigProperties.getName();
